@@ -55,14 +55,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const checkButton = document.getElementById("check-button");
     const nextButton = document.getElementById("next-button");
     const feedback = document.getElementById("feedback");
+    const answer = document.getElementById("answer");
 
     function generateNumber() {
-        // currentNumber = Math.floor(Math.random() * 1000000) + 1;
-        currentNumber = 323;
+        currentNumber = Math.floor(Math.random() * 1000000) + 1;
         numberDisplay.textContent = currentNumber;
         inputField.value = "";
         inputField.style.backgroundColor = "white";
         feedback.textContent = "";
+        answer.textContent = "";
     }
 
     checkButton.addEventListener("click", () => {
@@ -71,12 +72,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (userAnswer === correctAnswer) {
             inputField.style.backgroundColor = "lightgreen";
-            feedback.textContent = "Correct!";
+            feedback.textContent = "Correcto! Muy bien!";
             feedback.style.color = "green";
         } else {
             inputField.style.backgroundColor = "lightcoral";
-            feedback.textContent = `Incorrect! Correct answer: ${correctAnswer}`;
+            feedback.textContent = "Incorrect!";
             feedback.style.color = "red";
+            answer.textContent = `Correct answer: ${correctAnswer}`
         }
     });
 
